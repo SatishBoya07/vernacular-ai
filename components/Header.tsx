@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Settings, Menu, Moon, Sun } from 'lucide-react';
+import Link from 'next/link';
+import { Settings, Menu, Moon, Sun, Activity } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface HeaderProps {
@@ -30,7 +31,17 @@ export default function Header({ onSettingsOpen, onMenuOpen }: HeaderProps) {
         </div>
         
         {/* Right controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Bridge Dashboard Link */}
+          <Link
+            href="/bridge"
+            className="p-2 text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors rounded-full min-w-10 min-h-10 flex items-center justify-center"
+            title={t('missionControl') || 'Mission Control Bridge'}
+            aria-label="Mission Control Bridge"
+          >
+            <Activity size={19} />
+          </Link>
+
           {/* Theme Toggle in Header */}
           <button
             onClick={toggleTheme}

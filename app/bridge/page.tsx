@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import BridgeDebugPanel from '@/components/BridgeDebugPanel';
 import { createBridgeEmitter, BridgeLogEntry } from '@/lib/bridgeEmitter';
 
@@ -49,9 +51,18 @@ export default function BridgePage() {
       <div className="flex-1 max-w-7xl w-full mx-auto p-6 md:p-12 relative z-10 flex flex-col">
         {/* Header */}
         <header className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-zinc-800 pb-6">
-          <h1 className="text-3xl md:text-4xl font-mono font-bold tracking-tight text-zinc-100 drop-shadow-sm">
-            Mission Control &mdash; Vernacular AI
-          </h1>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link
+              href="/"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 text-sm font-mono transition-colors"
+            >
+              <ArrowLeft size={16} />
+              <span>Back to Chat</span>
+            </Link>
+            <h1 className="text-2xl md:text-3xl font-mono font-bold tracking-tight text-zinc-100 drop-shadow-sm">
+              Mission Control &mdash; Vernacular AI
+            </h1>
+          </div>
           <div className="flex items-center gap-2 bg-zinc-900/80 border border-zinc-800 px-4 py-2 rounded-full shadow-sm">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>

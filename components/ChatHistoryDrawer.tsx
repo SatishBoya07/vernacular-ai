@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Plus, Trash2, MessageSquare } from 'lucide-react';
+import { X, Plus, Trash2, MessageSquare, Activity } from 'lucide-react';
 import { ConversationSession } from '@/types';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -132,8 +133,20 @@ export default function ChatHistoryDrawer({
               )}
             </div>
 
+            {/* Mission Control Bridge Link */}
+            <div className="p-3 border-t border-zinc-200 dark:border-zinc-800">
+              <Link
+                href="/bridge"
+                onClick={onClose}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-mono transition-colors border border-zinc-200 dark:border-zinc-700 shadow-sm"
+              >
+                <Activity size={15} className="text-emerald-500" />
+                <span>Open Mission Control Bridge</span>
+              </Link>
+            </div>
+
             {/* Drawer Footer */}
-            <div className="p-4 border-t border-zinc-200 dark:border-zinc-800 text-xs text-zinc-400 dark:text-zinc-500 text-center font-mono pb-[env(safe-area-inset-bottom)]">
+            <div className="p-3 border-t border-zinc-200 dark:border-zinc-800 text-xs text-zinc-400 dark:text-zinc-500 text-center font-mono pb-[env(safe-area-inset-bottom)]">
               Vernacular AI &bull; Offline PWA
             </div>
           </motion.div>
